@@ -224,7 +224,7 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    /* color: var(--nav-color); */
     font-size: 15px;
     padding: 0 2px;
     font-family: var(--nav-font);
@@ -459,7 +459,7 @@ h6 {
 --------------------------------------------------------------*/
 .footer {
   color: var(--default-color);
-  background-color: #181818; /* Deep black-gray for a sleek modern look */
+  background-color: #181818;
   font-size: 14px;
   padding: 24px 0;
   position: relative;
@@ -669,16 +669,18 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   position: relative;
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 0px;
   position: relative;
+  color: #FFC107;
+  -webkit-text-stroke: .9px black;
 }
 
 .section-title h2:after {
@@ -687,7 +689,7 @@ section,
   display: block;
   width: 300px;
   height: 5px;
-  background: #ffffff;
+  /* background: #ffffff; */
   left: 0;
   right: 0;
   bottom: 0;
@@ -736,7 +738,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: color-mix(in srgb, var(--background-color), transparent 50%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -810,10 +812,8 @@ section,
 # About Section
 --------------------------------------------------------------*/
 .about .container {
-  background-color: var(--surface-color);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   padding: 30px;
-  border-radius: 8px;
+  background: transparent;
 }
 
 .about img {
@@ -861,7 +861,7 @@ section,
   }
 }
 
-.about .skills-content h5 {
+/* .about .skills-content h5 {
   font-size: 30px;
   font-weight: 700;
   margin: 30px 0 15px 0;
@@ -900,14 +900,15 @@ section,
   height: 10px;
   transition: 0.9s;
   background-color: #757373;
-}
+} */
 
 .about .about-me h4 {
-  font-size: 28px;
+  font-size: 48px;
   position: relative;
   padding-bottom: 10px;
   margin-bottom: 30px;
   font-weight: 700;
+  -webkit-text-stroke: .9px black;
 }
 
 .about .about-me h4:after {
@@ -988,7 +989,7 @@ section,
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid rgba(255, 255, 255, 0.6); /* Slightly transparent white */
+  border-left: 2px solid #FFC107;
   position: relative;
 }
 
@@ -1007,8 +1008,8 @@ section,
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.1); /* Light white tint */
-  color: #ffffff; /* Full white for better readability */
+  background: rgba(255, 255, 255, 0.1); 
+  color: #ffffff; 
   border-radius: 5px;
 }
 
@@ -1032,8 +1033,8 @@ section,
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: rgb(248, 247, 247); /* Slightly white background for visibility */
-  border: 2px solid rgba(255, 255, 255, 0.6); /* Matches the border color */
+  background: #FFC107; 
+  border: 2px solid #FFC107; 
 }
 
 .resume-item a {
@@ -1057,6 +1058,10 @@ section,
 
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.resume hr {
+  color: #FFC107;
 }
 
 /*--------------------------------------------------------------
@@ -1213,8 +1218,8 @@ section,
 # Contact Section
 --------------------------------------------------------------*/
 .contact .info-wrap {
-  background-color: var(--surface-color);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow */
+  /* background-color: var(--surface-color); */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   padding: 30px;
   margin-bottom: 30px;
   border-radius: 10px; /* Smooth rounded corners */
@@ -1261,8 +1266,8 @@ section,
 
 /* Contact Form */
 .contact .php-email-form {
-  background-color: var(--surface-color);
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  /* background-color: var(--surface-color);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); */
   padding: 30px;
   border-radius: 10px;
 }
