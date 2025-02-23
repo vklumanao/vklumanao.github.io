@@ -189,9 +189,6 @@ h6 {
   background-color: rgba(18, 18, 18, 0.95); /* Slightly darker on scroll */
 }
 
-
-
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -541,12 +538,13 @@ h6 {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid transparent;
-  border-top: 6px solid #FFC107;
-  border-right: 6px solid #FFC107;
+  border-top: 6px solid #ffc107;
+  border-right: 6px solid #ffc107;
   border-radius: 50%;
   width: 70px;
   height: 70px;
-  animation: animate-preloader 1.5s linear infinite, glow 1.5s ease-in-out infinite alternate;
+  animation: animate-preloader 1.5s linear infinite,
+    glow 1.5s ease-in-out infinite alternate;
 }
 
 /* Rotation Animation */
@@ -562,16 +560,15 @@ h6 {
 /* Glowing Effect */
 @keyframes glow {
   0% {
-    box-shadow: 0 0 5px #FFC107;
+    box-shadow: 0 0 5px #ffc107;
   }
   50% {
-    box-shadow: 0 0 15px #FFC107, 0 0 30px #FFC107;
+    box-shadow: 0 0 15px #ffc107, 0 0 30px #ffc107;
   }
   100% {
-    box-shadow: 0 0 5px #FFC107;
+    box-shadow: 0 0 5px #ffc107;
   }
 }
-
 
 /*--------------------------------------------------------------
 # Scroll Top Button
@@ -694,8 +691,8 @@ section,
   margin-bottom: 10px;
   padding-bottom: 0px;
   position: relative;
-  color: #FFC107;
-  -webkit-text-stroke: .9px black;
+  color: #ffc107;
+  -webkit-text-stroke: 0.9px black;
 }
 
 .section-title h2:after {
@@ -923,7 +920,7 @@ section,
   padding-bottom: 10px;
   margin-bottom: 30px;
   font-weight: 700;
-  -webkit-text-stroke: .9px black;
+  -webkit-text-stroke: 0.9px black;
 }
 
 .about .about-me h4:after {
@@ -1004,7 +1001,7 @@ section,
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid #FFC107;
+  border-left: 2px solid #ffc107;
   position: relative;
 }
 
@@ -1023,8 +1020,8 @@ section,
   display: inline-block;
   font-weight: 600;
   margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.1); 
-  color: #ffffff; 
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   border-radius: 5px;
 }
 
@@ -1048,8 +1045,8 @@ section,
   border-radius: 50px;
   left: -9px;
   top: 0;
-  background: #FFC107; 
-  border: 2px solid #FFC107; 
+  background: #ffc107;
+  border: 2px solid #ffc107;
 }
 
 .resume-item a {
@@ -1076,7 +1073,7 @@ section,
 }
 
 .resume hr {
-  color: #FFC107;
+  color: #ffc107;
 }
 
 /*--------------------------------------------------------------
