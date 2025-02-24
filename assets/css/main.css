@@ -1076,6 +1076,12 @@ section,
   color: #ffc107;
 }
 
+.custom-outline {
+  -webkit-text-stroke: 1px #ffc107; /* Adds a yellow outline */
+  color: transparent; /* Makes the fill transparent */
+}
+
+
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
