@@ -255,6 +255,8 @@
             <a
               href="https://www.dropbox.com/scl/fi/cfqo8d1ymb75p3romsdw7/Lumanao.pdf?rlkey=vqhaaa386cwlwnjx5c3nzsryv&st=iaadrbao&dl=0"
               target="_blank"
+              data-bs-toggle="tooltip"
+              title="See my resume!"
               ><i class="bi bi-link-45deg"></i
             ></a>
           </h2>
@@ -366,7 +368,9 @@
                   <a
                     href="https://github.com/vklumanao/laravel_project"
                     target="_blank"
-                    ><i class="bi bi-link-45deg"></i
+                    data-bs-toggle="tooltip"
+                    title="View Repository"
+                    ><i class="bi bi-link-45deg text-warning"></i
                   ></a>
                 </h4>
                 <p>
@@ -384,7 +388,9 @@
                   <a
                     href="https://github.com/vklumanao/Kis3e.github.io"
                     target="_blank"
-                    ><i class="bi bi-link-45deg"></i
+                    data-bs-toggle="tooltip"
+                    title="View Repository"
+                    ><i class="bi bi-link-45deg text-warning"></i
                   ></a>
                 </h4>
                 <p>
@@ -478,8 +484,10 @@
                     href="#"
                     data-bs-toggle="modal"
                     data-bs-target="#certModal1"
+                    data-bs-toggle="tooltip"
+                    title="See photo"
                   >
-                    <i class="bi bi-link-45deg"></i>
+                    <i class="bi bi-link-45deg text-warning"></i>
                   </a>
                 </h4>
                 <h5>2024</h5>
@@ -494,8 +502,10 @@
                     href="#"
                     data-bs-toggle="modal"
                     data-bs-target="#certModal2"
+                    data-bs-toggle="tooltip"
+                    title="See photo"
                   >
-                    <i class="bi bi-link-45deg"></i>
+                    <i class="bi bi-link-45deg text-warning"></i>
                   </a>
                 </h4>
                 <h5>2025</h5>
@@ -510,8 +520,10 @@
                     href="#"
                     data-bs-toggle="modal"
                     data-bs-target="#certModal3"
+                    data-bs-toggle="tooltip"
+                    title="See photo"
                   >
-                    <i class="bi bi-link-45deg"></i>
+                    <i class="bi bi-link-45deg text-warning"></i>
                   </a>
                 </h4>
                 <h5>2025</h5>
@@ -526,8 +538,10 @@
                     href="#"
                     data-bs-toggle="modal"
                     data-bs-target="#certModal4"
+                    data-bs-toggle="tooltip"
+                    title="See photo"
                   >
-                    <i class="bi bi-link-45deg"></i>
+                    <i class="bi bi-link-45deg text-warning"></i>
                   </a>
                 </h4>
                 <h5>2025</h5>
@@ -1189,6 +1203,7 @@
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <!-- script for contact -->
     <script>
       document
         .querySelector(".php-email-form")
@@ -1232,6 +1247,16 @@
             errorMessage.style.display = "block";
           }
         });
+    </script>
+
+    <!-- script for tooltip -->
+    <script>
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
     </script>
 
     <!-- Main JS File -->
