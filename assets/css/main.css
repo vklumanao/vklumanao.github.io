@@ -486,9 +486,9 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Soft white transparency */
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.6); /* Light gray text */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 18px;
+  color: #ffc107;
   transition: all 0.3s ease-in-out;
 }
 
@@ -497,8 +497,8 @@ h6 {
 .social-links a:hover {
   color: #ffffff;
   border-color: #ffffff;
-  background-color: #252525; /* Darker gray for hover effect */
-  transform: scale(1.1); /* Slight zoom effect */
+  background-color: #252525;
+  transform: scale(1.1);
 }
 
 /* Credits Section */
@@ -589,18 +589,18 @@ h6 {
   justify-content: center;
   transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out,
     background-color 0.3s;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Soft glow effect */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
 }
 
 .scroll-top i {
   font-size: 24px;
-  color: var(--contrast-color);
+  color: #ffc107;
   line-height: 0;
 }
 
 /* Hover Effect */
 .scroll-top:hover {
-  background-color: #2a2a2a; /* Slightly lighter dark gray */
+  background-color: #2a2a2a;
   transform: scale(1.2);
 }
 
@@ -1081,7 +1081,6 @@ section,
   color: transparent; /* Makes the fill transparent */
 }
 
-
 /*--------------------------------------------------------------
 # Stats Section
 --------------------------------------------------------------*/
@@ -1159,7 +1158,7 @@ section,
 
 .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
-  color: var(--accent-color);
+  color: #ffc107;
 }
 
 .portfolio .portfolio-filters li:first-child {
@@ -1326,7 +1325,7 @@ section,
 
 .contact .php-email-form button[type="submit"] {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background: #ffc107;
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
