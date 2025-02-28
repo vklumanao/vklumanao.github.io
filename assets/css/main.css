@@ -938,6 +938,10 @@ section,
   font-size: 18px;
 }
 
+.about .about-info p {
+  font-size: 18px;
+}
+
 .skill {
   overflow: hidden;
   padding: 60px 0;
