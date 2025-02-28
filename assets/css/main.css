@@ -831,7 +831,7 @@ section,
 .about img {
   border-radius: 30%;
   margin-bottom: 30px;
-  border: #ffffff 2px solid;
+  border: #9f9f9f 2px solid;
   animation: animate-profile 10s ease-in-out infinite;
 }
 
@@ -917,8 +917,8 @@ section,
 .about .about-me h4 {
   font-size: 48px;
   position: relative;
-  padding-bottom: 10px;
-  margin-bottom: 30px;
+  /* padding-bottom: 10px; */
+  /* margin-bottom: 30px; */
   font-weight: 700;
   -webkit-text-stroke: 0.9px black;
 }
@@ -929,7 +929,6 @@ section,
   display: block;
   width: 64px;
   height: 3px;
-  background: #fffefe;
   left: 0;
   bottom: 0;
   margin: auto;
@@ -991,7 +990,7 @@ section,
 # Resume Section
 --------------------------------------------------------------*/
 .resume .resume-title {
-  color: var(--heading-color);
+  color: #ffc107;
   font-size: 26px;
   font-weight: 700;
   margin-top: 20px;
@@ -1077,8 +1076,8 @@ section,
 }
 
 .custom-outline {
-  -webkit-text-stroke: 1px #ffc107; /* Adds a yellow outline */
-  color: transparent; /* Makes the fill transparent */
+  -webkit-text-stroke: 1px #ffc107;
+  color: transparent;
 }
 
 /*--------------------------------------------------------------
