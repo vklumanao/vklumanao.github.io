@@ -528,46 +528,10 @@ h6 {
   inset: 0;
   z-index: 999999;
   overflow: hidden;
-  background: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid transparent;
-  border-top: 6px solid #ffc107;
-  border-right: 6px solid #ffc107;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  animation: animate-preloader 1.5s linear infinite,
-    glow 1.5s ease-in-out infinite alternate;
-}
-
-/* Rotation Animation */
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Glowing Effect */
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 5px #ffc107;
-  }
-  50% {
-    box-shadow: 0 0 15px #ffc107, 0 0 30px #ffc107;
-  }
-  100% {
-    box-shadow: 0 0 5px #ffc107;
-  }
 }
 
 /*--------------------------------------------------------------
