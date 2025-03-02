@@ -58,9 +58,13 @@
       type="module"
       src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"
     ></script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   </head>
 
   <body class="index-page">
+    <div id="animated-background"></div>
+
     <header id="header" class="header d-flex align-items-center sticky-top">
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
@@ -1520,6 +1524,61 @@
           document.getElementById("preloader").style.display = "none";
           document.getElementById("content").style.display = "block";
         }, 600); // Matches transition duration
+      });
+    </script>
+
+    <script>
+      particlesJS("animated-background", {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: "#ffffff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+          },
+          opacity: {
+            value: 0.5,
+          },
+          size: {
+            value: 5,
+            random: true,
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#ffffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+          },
+        },
+        interactivity: {
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+          },
+        },
+        retina_detect: true,
       });
     </script>
 
