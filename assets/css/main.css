@@ -929,11 +929,25 @@ section,
   animation: slide 35s linear infinite;
 }
 
+.skill-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 40px;
+}
+
 .skills-slide img {
   height: 100px;
   max-width: 100px;
-  margin: 0 40px;
   transition: transform 0.3s ease-in-out;
+}
+
+.skill-item p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #c3c3c3;
 }
 
 @keyframes slide {
@@ -946,7 +960,7 @@ section,
 }
 
 .skills-slide img:hover {
-  transform: scale(1.5); /* Enlarges the image by 20% */
+  transform: scale(1.5);
 }
 
 /*--------------------------------------------------------------
