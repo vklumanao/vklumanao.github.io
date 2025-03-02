@@ -1137,6 +1137,32 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Hobbies Section
+--------------------------------------------------------------*/
+
+.hobby-box {
+  background: transparent;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+.hobby-box:hover {
+  transform: translateY(-5px);
+}
+.hobby-box i {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.hobby-box h5 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #cccccc;
+}
+
+/*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
