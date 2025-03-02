@@ -59,7 +59,12 @@
       src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"
     ></script>
 
+    <!-- particle js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- scramble effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
   </head>
 
   <body class="index-page">
@@ -180,35 +185,81 @@
                 <h4 class="text-warning text-center">ABOUT ME</h4>
                 <p>
                   I am an
-                  <span class="text-warning">Information Systems student</span>
+                  <span
+                    class="scramble"
+                    data-text="Information Systems student"
+                  ></span>
                   and an
-                  <span class="text-warning">aspiring developer</span> with a
-                  passion for <span class="text-warning">technology</span>,
-                  <span class="text-warning">problem-solving</span>, and
-                  <span class="text-warning">innovation</span>. I enjoy
-                  exploring different aspects of
-                  <span class="text-warning">software development</span>, from
-                  <span class="text-warning">web applications</span> to
-                  <span class="text-warning">database management</span>, and
-                  continuously improving my skills to build
-                  <span class="text-warning">efficient</span> and
-                  <span class="text-warning">user-friendly solutions</span>.
+                  <span class="scramble" data-text="aspiring developer"></span>
+                  with a passion for
+                  <span class="scramble" data-text="technology"></span>,
+                  <span class="scramble" data-text="problem-solving"></span>,
+                  and <span class="scramble" data-text="innovation"></span>. I
+                  enjoy exploring different aspects of
+                  <span class="scramble" data-text="software development"></span
+                  >, from
+                  <span class="scramble" data-text="web applications"></span> to
+                  <span class="scramble" data-text="database management"></span
+                  >, and continuously improving my skills to build
+                  <span class="scramble" data-text="efficient"></span> and
+                  <span
+                    class="scramble"
+                    data-text="user-friendly solutions"
+                  ></span
+                  >.
                 </p>
+
                 <p>
-                  Driven by <span class="text-warning">curiosity</span> and a
-                  strong desire to <span class="text-warning">learn</span>, I am
-                  always eager to take on
-                  <span class="text-warning">new challenges</span>,
-                  <span class="text-warning">collaborate</span> with others, and
-                  contribute to
-                  <span class="text-warning">meaningful projects</span> that
-                  make an <span class="text-warning">impact</span>. My goal is
-                  to bridge the gap between
-                  <span class="text-warning">business</span> and
-                  <span class="text-warning">technology</span>, leveraging
-                  <span class="text-warning">information systems</span> to
-                  create <span class="text-warning">smarter</span> and
-                  <span class="text-warning">more efficient solutions</span>.
+                  Driven by
+                  <span
+                    class="scramble text-warning"
+                    data-text="curiosity"
+                  ></span>
+                  and a strong desire to
+                  <span class="scramble text-warning" data-text="learn"></span>,
+                  I am always eager to take on
+                  <span
+                    class="scramble text-warning"
+                    data-text="new challenges"
+                  ></span
+                  >,
+                  <span
+                    class="scramble text-warning"
+                    data-text="collaborate"
+                  ></span>
+                  with others, and contribute to
+                  <span
+                    class="scramble text-warning"
+                    data-text="meaningful projects"
+                  ></span>
+                  that make an
+                  <span class="scramble text-warning" data-text="impact"></span
+                  >. My goal is to bridge the gap between
+                  <span
+                    class="scramble text-warning"
+                    data-text="business"
+                  ></span>
+                  and
+                  <span
+                    class="scramble text-warning"
+                    data-text="technology"
+                  ></span
+                  >, leveraging
+                  <span
+                    class="scramble text-warning"
+                    data-text="information systems"
+                  ></span>
+                  to create
+                  <span
+                    class="scramble text-warning"
+                    data-text="smarter"
+                  ></span>
+                  and
+                  <span
+                    class="scramble text-warning"
+                    data-text="more efficient solutions"
+                  ></span
+                  >.
                 </p>
               </div>
             </div>
@@ -1579,6 +1630,47 @@
           },
         },
         retina_detect: true,
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let elements = document.querySelectorAll(".scramble");
+
+        function revealOnScroll() {
+          elements.forEach((el) => {
+            let rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100 && !el.dataset.animated) {
+              el.dataset.animated = true; // Prevent re-animation
+              scrambleText(el, el.dataset.text);
+            }
+          });
+        }
+
+        function scrambleText(element, finalText) {
+          let chars = "!@#$%^&*()_+=-<>?/[]{}|"; // Random characters
+          let scrambled = "";
+          let i = 0;
+
+          let interval = setInterval(() => {
+            scrambled = finalText
+              .split("")
+              .map((char, index) =>
+                index <= i
+                  ? char
+                  : chars[Math.floor(Math.random() * chars.length)]
+              )
+              .join("");
+
+            element.textContent = scrambled;
+            i++;
+
+            if (i > finalText.length) clearInterval(interval);
+          }, 50); // Speed of scrambling
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll(); // Check on load
       });
     </script>
 

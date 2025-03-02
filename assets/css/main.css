@@ -765,6 +765,19 @@ section,
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  animation: enlargeText 2s infinite alternate ease-in-out;
+}
+
+@keyframes enlargeText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .hero p {
@@ -862,6 +875,10 @@ section,
 
 .about .about-me p {
   font-size: 18px;
+}
+
+.scramble {
+  color: #ffc107;
 }
 
 .about .about-info p {
