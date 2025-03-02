@@ -151,21 +151,16 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(
-    18,
-    18,
-    18,
-    0.9
-  ); /* Charcoal black with slight transparency */
-  --default-color: #dddddd; /* Soft white text */
-  --heading-color: #ffffff; /* High contrast for logo text */
+  --background-color: rgba(18, 18, 18, 0.9);
+  --default-color: #dddddd;
+  --heading-color: #ffffff;
 
   color: var(--default-color);
   background-color: var(--background-color);
   padding: 20px 0;
   transition: all 0.4s ease-in-out;
   z-index: 997;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .header .logo {
