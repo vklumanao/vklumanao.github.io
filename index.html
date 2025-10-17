@@ -175,6 +175,7 @@
                 <div class="col-lg-6">
                   <img
                     src="/custom-img/profile-1.png"
+                    data-hover="/custom-img/shy.png"
                     class="img-fluid"
                     alt="Profile Picture"
                   />
@@ -1245,84 +1246,6 @@
       </section>
       <!-- /Resume Section -->
 
-      <!-- Hobbies section -->
-      <section class="hobbies section py-5">
-        <div class="container">
-          <div class="section-title text-center mb-4" data-aos="fade-up">
-            <h2 class="fw-bold">MY HOBBIES</h2>
-          </div>
-          <div class="row">
-            <!-- Hobby 1 -->
-            <div class="col-md-4" data-aos="fade-right">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/camera.svg"
-                  alt="Photography"
-                  width="60"
-                />
-                <h5>Photography</h5>
-              </div>
-            </div>
-            <!-- Hobby 2 -->
-            <div class="col-md-4" data-aos="fade-right">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/books.svg"
-                  alt="Reading"
-                  width="60"
-                />
-                <h5>Reading</h5>
-              </div>
-            </div>
-            <!-- Hobby 3 -->
-            <div class="col-md-4" data-aos="fade-right">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/laptop.svg"
-                  alt="Coding"
-                  width="60"
-                />
-                <h5>Coding</h5>
-              </div>
-            </div>
-            <!-- Hobby 4 -->
-            <div class="col-md-4 mt-4" data-aos="fade-left">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/basketball.svg"
-                  alt="Basketball"
-                  width="60"
-                />
-                <h5>Basketball</h5>
-              </div>
-            </div>
-            <!-- Hobby 5 -->
-            <div class="col-md-4 mt-4" data-aos="fade-left">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/billiard.svg"
-                  alt="Billiards"
-                  width="60"
-                />
-                <h5>Billiards</h5>
-              </div>
-            </div>
-            <!-- Hobby 6 -->
-            <div class="col-md-4 mt-4" data-aos="fade-left">
-              <div class="hobby-box shadow-sm">
-                <img
-                  src="/custom-img/hobbies/badminton.svg"
-                  alt="Badminton"
-                  width="60"
-                />
-                <h5>Badminton</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End Hobbies section -->
-
       <!-- Portfolio Section -->
       <section id="portfolio" class="portfolio section">
         <!-- Section Title -->
@@ -2018,6 +1941,48 @@
 
         window.addEventListener("scroll", revealOnScroll);
         revealOnScroll(); // Check on load
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // target any image that has data-hover
+        document.querySelectorAll("img[data-hover]").forEach(function (img) {
+          var originalSrc = img.src;
+          var hoverSrc = img.dataset.hover;
+
+          // ensure hoverSrc is absolute or relative-correct
+          if (
+            !hoverSrc.match(/^(https?:)?\/\//) &&
+            hoverSrc.charAt(0) !== "/"
+          ) {
+            // make it relative to site root (optional)
+            hoverSrc = "/" + hoverSrc;
+          }
+
+          // Preload hover image
+          var preload = new Image();
+          preload.src = hoverSrc;
+
+          // Smooth fade
+          img.style.transition = "opacity 200ms ease";
+
+          img.addEventListener("mouseenter", function () {
+            img.style.opacity = "0";
+            setTimeout(function () {
+              img.src = hoverSrc;
+              img.style.opacity = "1";
+            });
+          });
+
+          img.addEventListener("mouseleave", function () {
+            img.style.opacity = "0";
+            setTimeout(function () {
+              img.src = originalSrc;
+              img.style.opacity = "1";
+            });
+          });
+        });
       });
     </script>
 
