@@ -1548,7 +1548,6 @@ section,
   padding: 0;
 }
 
-/* Hover Label for Profile Image */
 .hover-label {
   top: -40px;
   left: 50%;
@@ -1560,7 +1559,7 @@ section,
 }
 
 .hover-label .badge {
-  font-size: 12px;
+  font-size: 16px;
   padding: 6px 12px;
   box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
   white-space: nowrap;
