@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -172,13 +172,20 @@
             <div class="col-md-6 pt-5" data-aos="fade-right">
               <div class="row gy-4 align-items-center">
                 <!-- Profile Image -->
-                <div class="col-lg-6">
-                  <img
-                    src="/custom-img/profile-1.png"
-                    data-hover="/custom-img/shy.png"
-                    class="img-fluid"
-                    alt="Profile Picture"
-                  />
+                <div class="col-lg-6 position-relative">
+                  <div class="position-relative d-inline-block w-100">
+                    <img
+                      src="/custom-img/profile-1.png"
+                      data-hover="/custom-img/shy.png"
+                      class="img-fluid"
+                      alt="Profile Picture"
+                    />
+                    <div class="hover-label position-absolute">
+                      <span class="badge bg-warning text-dark fw-bold"
+                        >Hover me</span
+                      >
+                    </div>
+                  </div>
                 </div>
                 <!-- Profile Details -->
                 <div class="col-lg-6 about-info">
@@ -1887,7 +1894,7 @@
     <!-- script for tooltip -->
     <script>
       var tooltipTriggerList = [].slice.call(
-        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        document.querySelectorAll('[data-bs-toggle="tooltip"]'),
       );
       var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
@@ -1987,7 +1994,7 @@
               .map((char, index) =>
                 index <= i
                   ? char
-                  : chars[Math.floor(Math.random() * chars.length)]
+                  : chars[Math.floor(Math.random() * chars.length)],
               )
               .join("");
 
