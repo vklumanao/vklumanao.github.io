@@ -438,13 +438,22 @@
         <div class="container section-title" data-aos="fade-up">
           <h2>
             MY RESUME
-            <a
-              href="https://www.dropbox.com/scl/fi/cfqo8d1ymb75p3romsdw7/Lumanao.pdf?rlkey=vqhaaa386cwlwnjx5c3nzsryv&st=iaadrbao&dl=0"
-              target="_blank"
-              data-bs-toggle="tooltip"
+            <button
+              type="button"
+              class="btn btn-link p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#cvModal"
               title="See my resume!"
-              ><i class="bi bi-link-45deg custom-outline"></i
-            ></a>
+              style="
+                border: none;
+                background: none;
+                cursor: pointer;
+                text-decoration: none;
+                font-size: 3rem;
+              "
+            >
+              <i class="bi bi-link-45deg custom-outline"></i>
+            </button>
           </h2>
         </div>
         <!-- End Section Title -->
@@ -1311,6 +1320,52 @@
         </div>
       </section>
       <!-- /Resume Section -->
+
+      <!-- CV Modal -->
+      <div
+        class="modal fade"
+        id="cvModal"
+        tabindex="-1"
+        aria-labelledby="cvModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="cvModalLabel">My Resume</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" style="height: 750px">
+              <iframe
+                src="/assets/pdf/Lumanao_CV.pdf#toolbar=0"
+                style="width: 100%; height: 100%; border: none"
+                title="CV Resume"
+              ></iframe>
+            </div>
+            <div class="modal-footer">
+              <a
+                href="/assets/pdf/Lumanao_CV.pdf"
+                class="btn btn-warning"
+                download
+                >Download CV</a
+              >
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /CV Modal -->
 
       <!-- Portfolio Section -->
       <section id="portfolio" class="portfolio section">
