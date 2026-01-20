@@ -1,45 +1,55 @@
-# Personal Portfolio - Vicryl Kez Lumanao
+# Personal Portfolio — Vicryl Kez Lumanao
 
-## 🌐 Live Website
-[Visit My Portfolio](https://vklumanao.github.io)
+🌐 **Live Website:**  
+👉 https://vklumanao.github.io
 
-## 📌 About
-This is my personal portfolio website showcasing my skills, projects, and experience in web development, software engineering, and information systems. It serves as a digital resume and a hub for my work and achievements.
+---
+
+## 📌 About Me
+
+Welcome to my personal portfolio website!  
+This site serves as my **digital resume** and project showcase, highlighting my skills, experience, and interests in **Web Development, Software Engineering, and Information Systems**.
+
+---
 
 ## 🛠️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap
-- **Backend:** Laravel (For projects), PHP
-- **Database:** PostgreSQL, MySQL
-- **Other Tools:** Git, GitHub, Figma
 
-## 📂 Features
-- Responsive design for desktop and mobile devices
-- Project showcase with live links and descriptions
-- Interactive elements such as modals and hover effects
+### Frontend
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+
+### Backend & Databases
+- PHP
+- Laravel (for selected projects)
+- PostgreSQL
+- MySQL
+
+### Tools & Design
+- Git & GitHub
+- Figma
+
+---
+
+## ✨ Features
+
+- Fully responsive design (desktop & mobile)
+- Project showcase with descriptions and live/demo links
+- Interactive UI elements (modals, hover effects)
 - Contact form for inquiries
-- Smooth animations using AOS (Animate On Scroll)
+- Smooth scroll-based animations using **AOS (Animate On Scroll)**
 
-## 🚀 Installation & Setup
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/vklumanao/personal-portfolio.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd personal-portfolio
-   ```
-3. Open `index.html` in a browser.
+---
 
-## 🖼️ Screenshots
-_Add screenshots here if needed._
+## 📂 Project Structure
 
-## 🔧 Future Improvements
-- Improve accessibility for better UX
-
-## 📞 Contact
-- **Email:** vicrylkez.lumanao@carsu.edu.ph
-- **LinkedIn:** [Vicryl Kez R. Lumanao](www.linkedin.com/in/vicryl-kèz-lumanao-237a11342)
-- **GitHub:** [vklumanao](https://github.com/vklumanao)
-
-Feel free to fork and customize this portfolio! 🚀
-
+```text
+vklumanao.github.io/
+│
+├── index.html          # Main landing page
+├── assets/             # CSS, JavaScript, images
+├── custom-img/         # Custom images
+├── forms/              # Contact form handling
+├── .vscode/            # Editor configuration
+└── README.md           # Project documentation
