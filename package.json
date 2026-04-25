@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy:live": "powershell -ExecutionPolicy Bypass -File .\\scripts\\deploy-live.ps1",
+    "deploy:live:fast": "powershell -ExecutionPolicy Bypass -File .\\scripts\\deploy-live.ps1 -SkipNpmCi",
     "lint": "eslint .",
     "preview": "vite preview"
   },

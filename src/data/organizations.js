@@ -4,6 +4,5 @@
   "CSU Information System Society",
   "ROBOTICS AUTOMATION CODING CLUB (RACC)",
   "CSU Gaming and Multiplayer Esports Enthusiasts",
-  "CSU Red Cross Organization",
   "Navigatu: Technology Business Incubator (TBI)",
 ];
