@@ -1,6 +1,6 @@
 ﻿export const roles = [
   "Student Developer",
   "Web Developer",
-  "Information Systems Student",
+  "Information System Student",
   "Problem Solver",
 ];

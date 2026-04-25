@@ -1,6 +1,6 @@
 ﻿export const education = [
   {
-    level: "Bachelor of Science in Information Systems",
+    level: "Bachelor of Science in Information System",
     period: "2022 - Present",
     school: "Caraga State University",
     location: "Brgy. Ampayon, Butuan City, Philippines",

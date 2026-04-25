@@ -52,8 +52,8 @@ function App() {
   const heroSnapshot = {
     focus: "Student Developer",
     availability:
-      "Open for internships, collaborations, and project-based opportunities.",
-    currentTrack: "Information Systems student building real-world systems",
+      "Open for collaborations, and project-based opportunities.",
+    currentTrack: "Information System student building real-world systems",
     scope: "Web apps, academic systems, and interactive portfolio work",
     stats: [
       `${projects.length} projects documented`,
