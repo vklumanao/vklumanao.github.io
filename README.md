@@ -1,55 +1,16 @@
-# Personal Portfolio — Vicryl Kez Lumanao
+# React + Vite
 
-🌐 **Live Website:**  
-👉 https://vklumanao.github.io
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 📌 About Me
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-Welcome to my personal portfolio website!  
-This site serves as my **digital resume** and project showcase, highlighting my skills, experience, and interests in **Web Development, Software Engineering, and Information Systems**.
+## React Compiler
 
----
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 🛠️ Tech Stack
+## Expanding the ESLint configuration
 
-### Frontend
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-
-### Backend & Databases
-- PHP
-- Laravel (for selected projects)
-- PostgreSQL
-- MySQL
-
-### Tools & Design
-- Git & GitHub
-- Figma
-
----
-
-## ✨ Features
-
-- Fully responsive design (desktop & mobile)
-- Project showcase with descriptions and live/demo links
-- Interactive UI elements (modals, hover effects)
-- Contact form for inquiries
-- Smooth scroll-based animations using **AOS (Animate On Scroll)**
-
----
-
-## 📂 Project Structure
-
-```text
-vklumanao.github.io/
-│
-├── index.html          # Main landing page
-├── assets/             # CSS, JavaScript, images
-├── custom-img/         # Custom images
-├── forms/              # Contact form handling
-├── .vscode/            # Editor configuration
-└── README.md           # Project documentation
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

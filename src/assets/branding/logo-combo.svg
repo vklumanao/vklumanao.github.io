@@ -1,0 +1,27 @@
+﻿<svg width="560" height="108" viewBox="0 0 560 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="comboFrame" x1="2" y1="8" x2="96" y2="102" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0A0A"/>
+      <stop offset="1" stop-color="#343434"/>
+    </linearGradient>
+    <linearGradient id="comboMark" x1="20" y1="30" x2="90" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0A0A"/>
+      <stop offset="1" stop-color="#3E3E3E"/>
+    </linearGradient>
+    <linearGradient id="comboType" x1="124" y1="18" x2="496" y2="86" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A0A0A"/>
+      <stop offset="1" stop-color="#3A3A3A"/>
+    </linearGradient>
+  </defs>
+
+  <g>
+    <rect x="2" y="8" width="92" height="92" rx="26" stroke="url(#comboFrame)" stroke-width="4"/>
+    <path d="M18 32L30 72L44 32" stroke="url(#comboMark)" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M48 32V72" stroke="url(#comboMark)" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M48 52L69 32" stroke="url(#comboMark)" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M48 51L71 72" stroke="url(#comboMark)" stroke-width="5.4" stroke-linecap="round"/>
+    <path d="M74 32V72H84" stroke="url(#comboMark)" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="122" y="64" fill="url(#comboType)" font-size="36" font-family="'Space Grotesk', 'Outfit', sans-serif" font-weight="700" letter-spacing="0.72">Vicryl Kez Lumanao</text>
+</svg>

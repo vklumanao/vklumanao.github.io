@@ -1,0 +1,96 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  font-family: 'Outfit', 'Segoe UI', sans-serif;
+  margin: 0;
+  color: #18181b;
+  background-color: #f4f4f5;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(0, 0, 0, 0.05), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(0, 0, 0, 0.04), transparent 40%),
+    linear-gradient(160deg, #f8f8f8 0%, #ececec 100%);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  color: #f3f4f6;
+  background-color: #050505;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(255, 255, 255, 0.06), transparent 40%),
+    linear-gradient(160deg, #050505 0%, #0c0c0c 100%);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Space Grotesk', 'Outfit', sans-serif;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.glass {
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+.hover-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-glow::before {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  left: var(--x, -999px);
+  top: var(--y, -999px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.hover-glow:hover::before {
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #303030;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
