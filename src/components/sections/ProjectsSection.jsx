@@ -1,5 +1,6 @@
 ﻿import SectionContainer from "../layout/SectionContainer";
 import ProjectCard from "../ui/ProjectCard";
+import { trackEvent } from "../../lib/analytics";
 
 function ProjectsSection({
   categories,
@@ -100,7 +101,7 @@ function ProjectsSection({
                 {featuredImpact}
               </p>
               <p className="text-xs uppercase tracking-wide text-zinc-500">
-                {featuredProject.role} • {featuredProject.year} •{" "}
+                {featuredProject.role} | {featuredProject.year} |{" "}
                 {featuredCollaboration}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -120,6 +121,12 @@ function ProjectsSection({
                     href={featuredProject.live}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() =>
+                      trackEvent("project_live_clicked", {
+                        location: "featured_project",
+                        project_title: featuredProject.title,
+                      })
+                    }
                     className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-xs sm:text-sm"
                   >
                     Live Demo
@@ -130,6 +137,12 @@ function ProjectsSection({
                     href={featuredProject.github}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() =>
+                      trackEvent("project_github_clicked", {
+                        location: "featured_project",
+                        project_title: featuredProject.title,
+                      })
+                    }
                     className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-xs sm:text-sm"
                   >
                     GitHub
@@ -157,3 +170,5 @@ function ProjectsSection({
 }
 
 export default ProjectsSection;
+
+
