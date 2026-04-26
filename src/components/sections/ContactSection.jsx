@@ -115,23 +115,26 @@ function ContactSection({
               <FaEnvelope />
             </a>
           </div>
-          <button
-            onClick={onCopyEmail}
-            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
-          >
-            <FaCopy /> Copy Email
-          </button>
-          <a
-            href={resumeUrl}
-            target="_blank"
-            rel="noreferrer"
-            onClick={() =>
-              trackEvent("cv_opened", { location: "contact_section" })
-            }
-            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
-          >
-            View CV
-          </a>
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button
+              onClick={onCopyEmail}
+              type="button"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-zinc-300/80 bg-zinc-100/70 px-4 py-2.5 text-sm font-medium text-zinc-700 transition hover:-translate-y-0.5 hover:border-zinc-400 hover:bg-zinc-200/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:border-white/20 dark:bg-white/5 dark:text-zinc-100 dark:hover:bg-white/10 dark:focus-visible:ring-white/30"
+            >
+              <FaCopy /> Copy Email
+            </button>
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() =>
+                trackEvent("cv_opened", { location: "contact_section" })
+              }
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-zinc-900 px-4 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 dark:focus-visible:ring-white/30"
+            >
+              View CV
+            </a>
+          </div>
           <p className="text-sm text-zinc-500">{email}</p>
           <p className="text-sm text-zinc-500">{phone}</p>
         </GlassCard>
