@@ -16,6 +16,7 @@ import {
   sectionVariants,
   tapPress,
 } from "../../lib/motion";
+import { trackEvent } from "../../lib/analytics";
 
 function HeroSection({
   typedRole,
@@ -90,6 +91,9 @@ function HeroSection({
               whileHover={prefersReducedMotion ? undefined : hoverLift}
               whileTap={prefersReducedMotion ? undefined : tapPress}
               transition={hoverTransition}
+              onClickCapture={() =>
+                trackEvent("projects_viewed", { location: "hero_section" })
+              }
             >
               View Projects{" "}
               <FaArrowRight className="ml-2 inline transition group-hover:translate-x-1" />
@@ -109,6 +113,9 @@ function HeroSection({
               target="_blank"
               rel="noreferrer"
               aria-label="Open CV in new tab"
+              onClick={() =>
+                trackEvent("cv_opened", { location: "hero_section" })
+              }
               className="glass inline-flex min-h-11 items-center rounded-2xl px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5"
               whileHover={prefersReducedMotion ? undefined : hoverLift}
               whileTap={prefersReducedMotion ? undefined : tapPress}
