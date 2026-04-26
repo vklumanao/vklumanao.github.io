@@ -7,7 +7,6 @@ function ProjectsSection({
   setFilter,
   filteredProjects,
   allProjects,
-  onOpenProject,
   onGlowMove,
 }) {
   const featuredProject =
@@ -115,14 +114,27 @@ function ProjectsSection({
                 ))}
               </div>
 
-              <div className="flex">
-                <button
-                  type="button"
-                  onClick={() => onOpenProject(featuredProject.title)}
-                  className="min-h-10 rounded-xl border border-white/20 px-3 py-2 text-xs sm:text-sm"
-                >
-                  View Project
-                </button>
+              <div className="flex flex-wrap gap-2">
+                {featuredProject.live && featuredProject.live !== "#" && (
+                  <a
+                    href={featuredProject.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-xs sm:text-sm"
+                  >
+                    Live Demo
+                  </a>
+                )}
+                {featuredProject.github && featuredProject.github !== "#" && (
+                  <a
+                    href={featuredProject.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-xs sm:text-sm"
+                  >
+                    GitHub
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -135,7 +147,6 @@ function ProjectsSection({
             <ProjectCard
               key={project.title}
               project={project}
-              onOpen={onOpenProject}
               onMouseMove={onGlowMove}
             />
           ))}

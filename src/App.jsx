@@ -15,7 +15,6 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import CertificateModal from "./components/ui/CertificateModal";
 import ProfileModal from "./components/ui/ProfileModal";
-import ProjectModal from "./components/ui/ProjectModal";
 import Toast from "./components/ui/Toast";
 import Preloader from "./components/ui/Preloader";
 import { certificates } from "./data/certificates";
@@ -43,7 +42,6 @@ function App() {
   const [showPreloader, setShowPreloader] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [filter, setFilter] = useState("All");
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
   const [certificateIndex, setCertificateIndex] = useState(null);
   const [commandOpen, setCommandOpen] = useState(false);
   const [commandQuery, setCommandQuery] = useState("");
@@ -69,8 +67,6 @@ function App() {
     ],
   };
 
-  const selectedProject =
-    selectedProjectIndex !== null ? projects[selectedProjectIndex] : null;
   const selectedCertificate =
     certificateIndex !== null ? certificates[certificateIndex] : null;
 
@@ -80,7 +76,6 @@ function App() {
   }, [filter]);
 
   const isOverlayOpen =
-    selectedProjectIndex !== null ||
     profileZoomed ||
     certificateIndex !== null ||
     commandOpen ||
@@ -149,27 +144,6 @@ function App() {
     });
   };
 
-  const openProject = (projectTitle) => {
-    const projectIndex = projects.findIndex(
-      (project) => project.title === projectTitle,
-    );
-    if (projectIndex >= 0) {
-      setSelectedProjectIndex(projectIndex);
-    }
-  };
-
-  const nextProject = () => {
-    if (selectedProjectIndex === null) return;
-    setSelectedProjectIndex((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    if (selectedProjectIndex === null) return;
-    setSelectedProjectIndex(
-      (prev) => (prev - 1 + projects.length) % projects.length,
-    );
-  };
-
   const nextCertificate = () => {
     if (certificateIndex === null) return;
     setCertificateIndex((prev) => (prev + 1) % certificates.length);
@@ -205,11 +179,11 @@ function App() {
     })),
     ...projects.map((project) => ({
       id: `project-${project.title}`,
-      label: `Open project: ${project.title}`,
+      label: `Find project: ${project.title}`,
       hint: project.category,
       run: () => {
         setFilter("All");
-        openProject(project.title);
+        navigateTo("projects");
       },
     })),
     {
@@ -235,18 +209,8 @@ function App() {
 
       if (event.key === "Escape") {
         setCommandOpen(false);
-        setSelectedProjectIndex(null);
         setCertificateIndex(null);
         setProfileZoomed(false);
-      }
-
-      if (selectedProjectIndex !== null && event.key === "ArrowRight") {
-        setSelectedProjectIndex((prev) => (prev + 1) % projects.length);
-      }
-      if (selectedProjectIndex !== null && event.key === "ArrowLeft") {
-        setSelectedProjectIndex(
-          (prev) => (prev - 1 + projects.length) % projects.length,
-        );
       }
 
       if (certificateIndex !== null && event.key === "ArrowDown") {
@@ -258,7 +222,7 @@ function App() {
         );
       }
     },
-    [certificateIndex, selectedProjectIndex],
+    [certificateIndex],
   );
 
   useKeyboardShortcuts(keyboardHandler);
@@ -301,7 +265,6 @@ function App() {
           setFilter={setFilter}
           filteredProjects={filteredProjects}
           allProjects={projects}
-          onOpenProject={openProject}
           onGlowMove={updateGlow}
         />
         <ExperienceSection workExperience={workExperience} />
@@ -350,14 +313,6 @@ function App() {
         onClose={() => setCertificateIndex(null)}
         onPrev={prevCertificate}
         onNext={nextCertificate}
-      />
-
-      <ProjectModal
-        open={selectedProject !== null}
-        project={selectedProject}
-        onClose={() => setSelectedProjectIndex(null)}
-        onPrev={prevProject}
-        onNext={nextProject}
       />
 
       <Toast open={copied} message="Email copied to clipboard" />

@@ -1,6 +1,6 @@
 ﻿import { motion } from "framer-motion";
 
-function ProjectCard({ project, onOpen, onMouseMove }) {
+function ProjectCard({ project, onMouseMove }) {
   const impactLine = project.impact ?? project.description;
   const collaborationType =
     project.collaboration ??
@@ -9,9 +9,8 @@ function ProjectCard({ project, onOpen, onMouseMove }) {
   return (
     <motion.article
       onMouseMove={onMouseMove}
-      className="group hover-glow glass relative cursor-pointer overflow-hidden rounded-2xl"
+      className="group hover-glow glass relative overflow-hidden rounded-2xl"
       whileHover={{ y: -4 }}
-      onClick={() => onOpen(project.title)}
     >
       <img
         src={project.image}
@@ -43,17 +42,27 @@ function ProjectCard({ project, onOpen, onMouseMove }) {
             </span>
           ))}
         </div>
-        <div className="flex">
-          <button
-            type="button"
-            onClick={(event) => {
-              event.stopPropagation();
-              onOpen(project.title);
-            }}
-            className="min-h-10 rounded-xl border border-white/20 px-3 py-2 text-center text-xs sm:text-sm"
-          >
-            View Project
-          </button>
+        <div className="flex flex-wrap gap-2">
+          {project.live && project.live !== "#" && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-center text-xs sm:text-sm"
+            >
+              Live Demo
+            </a>
+          )}
+          {project.github && project.github !== "#" && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-center text-xs sm:text-sm"
+            >
+              GitHub
+            </a>
+          )}
         </div>
       </div>
     </motion.article>
