@@ -7,6 +7,7 @@
 } from "react-icons/fa";
 import GlassCard from "../ui/GlassCard";
 import SectionContainer from "../layout/SectionContainer";
+import { trackEvent } from "../../lib/analytics";
 
 function ContactSection({
   email,
@@ -60,6 +61,7 @@ function ContactSection({
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
+              onClick={() => trackEvent("github_clicked", { location: "contact_section" })}
               className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/20 p-3 transition hover:-translate-y-0.5"
             >
               <FaGithub />
@@ -100,6 +102,7 @@ function ContactSection({
             href={resumeUrl}
             target="_blank"
             rel="noreferrer"
+            onClick={() => trackEvent("cv_opened", { location: "contact_section" })}
             className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
           >
             View CV
