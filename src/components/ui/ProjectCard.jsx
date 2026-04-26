@@ -8,7 +8,6 @@ function ProjectCard({ project, onOpen, onMouseMove }) {
 
   return (
     <motion.article
-      layout
       onMouseMove={onMouseMove}
       className="group hover-glow glass relative cursor-pointer overflow-hidden rounded-2xl"
       whileHover={{ y: -4 }}
@@ -17,7 +16,9 @@ function ProjectCard({ project, onOpen, onMouseMove }) {
       <img
         src={project.image}
         alt={project.title}
-        className="h-44 w-full object-cover grayscale transition duration-500 group-hover:scale-105 group-hover:grayscale-0"
+        loading="lazy"
+        decoding="async"
+        className="h-44 w-full object-cover transition duration-500 group-hover:scale-[1.03]"
       />
       <div className="space-y-3 p-5 sm:p-6">
         <div className="flex items-center justify-between gap-3">

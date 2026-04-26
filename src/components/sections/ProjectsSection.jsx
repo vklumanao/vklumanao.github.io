@@ -74,7 +74,10 @@ function ProjectsSection({
               <img
                 src={featuredProject.image}
                 alt={featuredProject.title}
-                className="h-full min-h-60 w-full object-cover transition duration-500 group-hover:scale-105"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="h-full min-h-60 w-full object-cover transition duration-500 group-hover:scale-[1.02]"
               />
             </div>
             <div className="space-y-4 p-5 sm:p-6">

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, useReducedMotion } from "framer-motion";
 import AboutSection from "./components/sections/AboutSection";
 import ContactSection from "./components/sections/ContactSection";
@@ -49,6 +49,11 @@ function App() {
   const [commandQuery, setCommandQuery] = useState("");
   const [profileZoomed, setProfileZoomed] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [enableGlow, setEnableGlow] = useState(true);
+  const glowFrameRef = useRef(null);
+  const glowTargetRef = useRef(null);
+  const glowXRef = useRef(0);
+  const glowYRef = useRef(0);
 
   const activeSection = useActiveSection(sectionIds);
   const typedRole = useTyping(roles);
@@ -103,6 +108,23 @@ function App() {
     return () => clearTimeout(timer);
   }, [prefersReducedMotion]);
 
+  useEffect(() => {
+    const media = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setEnableGlow(media.matches && !prefersReducedMotion);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, [prefersReducedMotion]);
+
+  useEffect(
+    () => () => {
+      if (glowFrameRef.current) {
+        cancelAnimationFrame(glowFrameRef.current);
+      }
+    },
+    [],
+  );
+
   const navigateTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -110,15 +132,21 @@ function App() {
   };
 
   const updateGlow = (event) => {
+    if (!enableGlow) return;
+
     const rect = event.currentTarget.getBoundingClientRect();
-    event.currentTarget.style.setProperty(
-      "--x",
-      `${event.clientX - rect.left}px`,
-    );
-    event.currentTarget.style.setProperty(
-      "--y",
-      `${event.clientY - rect.top}px`,
-    );
+    glowTargetRef.current = event.currentTarget;
+    glowXRef.current = event.clientX - rect.left;
+    glowYRef.current = event.clientY - rect.top;
+
+    if (glowFrameRef.current) return;
+    glowFrameRef.current = requestAnimationFrame(() => {
+      if (glowTargetRef.current) {
+        glowTargetRef.current.style.setProperty("--x", `${glowXRef.current}px`);
+        glowTargetRef.current.style.setProperty("--y", `${glowYRef.current}px`);
+      }
+      glowFrameRef.current = null;
+    });
   };
 
   const openProject = (projectTitle) => {
