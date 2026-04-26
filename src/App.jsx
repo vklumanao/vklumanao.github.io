@@ -15,6 +15,7 @@ import Footer from "./components/layout/Footer";
 import Navbar from "./components/layout/Navbar";
 import CertificateModal from "./components/ui/CertificateModal";
 import ProfileModal from "./components/ui/ProfileModal";
+import SmartJumpButton from "./components/ui/SmartJumpButton";
 import Toast from "./components/ui/Toast";
 import Preloader from "./components/ui/Preloader";
 import { certificates } from "./data/certificates";
@@ -32,6 +33,7 @@ import { useActiveSection } from "./hooks/useActiveSection";
 import { useKeyboardShortcuts } from "./hooks/useKeyboardShortcuts";
 import { useLockBodyScroll } from "./hooks/useLockBodyScroll";
 import { useTyping } from "./hooks/useTyping";
+import { trackEvent } from "./lib/analytics";
 
 const sectionIds = navLinks.map((link) => link.id);
 function App() {
@@ -159,6 +161,7 @@ function App() {
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(personalInfo.email);
+      trackEvent("email_copied", { location: "contact_section" });
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch {
@@ -168,6 +171,7 @@ function App() {
 
   const handleContactSubmit = (event) => {
     event.preventDefault();
+    trackEvent("contact_submitted", { location: "contact_section" });
   };
 
   const commandActions = [
@@ -196,7 +200,10 @@ function App() {
       id: "resume-open",
       label: "Open CV",
       hint: "Action",
-      run: () => window.open(personalInfo.resume, "_blank", "noopener,noreferrer"),
+      run: () => {
+        trackEvent("cv_opened", { location: "command_palette" });
+        window.open(personalInfo.resume, "_blank", "noopener,noreferrer");
+      },
     },
   ];
 
@@ -294,6 +301,13 @@ function App() {
       </main>
 
       <Footer />
+
+      <SmartJumpButton
+        activeSection={activeSection}
+        navLinks={navLinks}
+        onNavigate={navigateTo}
+        hidden={isOverlayOpen}
+      />
 
       <CommandPalette
         open={commandOpen}
