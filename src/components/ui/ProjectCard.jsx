@@ -1,4 +1,5 @@
 ﻿import { motion } from "framer-motion";
+import { trackEvent } from "../../lib/analytics";
 
 function ProjectCard({ project, onMouseMove }) {
   const impactLine = project.impact ?? project.description;
@@ -48,6 +49,12 @@ function ProjectCard({ project, onMouseMove }) {
               href={project.live}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackEvent("project_live_clicked", {
+                  location: "project_card",
+                  project_title: project.title,
+                })
+              }
               className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-center text-xs sm:text-sm"
             >
               Live Demo
@@ -58,6 +65,12 @@ function ProjectCard({ project, onMouseMove }) {
               href={project.github}
               target="_blank"
               rel="noreferrer"
+              onClick={() =>
+                trackEvent("project_github_clicked", {
+                  location: "project_card",
+                  project_title: project.title,
+                })
+              }
               className="inline-flex min-h-10 items-center rounded-xl border border-white/20 px-3 py-2 text-center text-xs sm:text-sm"
             >
               GitHub
@@ -70,3 +83,4 @@ function ProjectCard({ project, onMouseMove }) {
 }
 
 export default ProjectCard;
+
