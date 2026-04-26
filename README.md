@@ -76,17 +76,3 @@ A passionate Web Developer with a strong foundation in software development and 
 - Instagram: [instagram.com/iamvicrylk](https://www.instagram.com/iamvicrylk/)
 
 ---
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-## Build and Deploy
-
-```bash
-npm run build
-npm run deploy
-```

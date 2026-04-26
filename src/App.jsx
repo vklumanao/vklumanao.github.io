@@ -49,6 +49,9 @@ function App() {
   const [commandQuery, setCommandQuery] = useState("");
   const [profileZoomed, setProfileZoomed] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("");
+  const [submitMessage, setSubmitMessage] = useState("");
   const [enableGlow, setEnableGlow] = useState(true);
   const glowFrameRef = useRef(null);
   const glowTargetRef = useRef(null);
@@ -78,10 +81,7 @@ function App() {
   }, [filter]);
 
   const isOverlayOpen =
-    profileZoomed ||
-    certificateIndex !== null ||
-    commandOpen ||
-    showPreloader;
+    profileZoomed || certificateIndex !== null || commandOpen || showPreloader;
   useLockBodyScroll(isOverlayOpen);
 
   useEffect(() => {
@@ -169,9 +169,52 @@ function App() {
     }
   };
 
-  const handleContactSubmit = (event) => {
+  const handleContactSubmit = async (event) => {
     event.preventDefault();
-    trackEvent("contact_submitted", { location: "contact_section" });
+    const form = event.currentTarget;
+    const formId = import.meta.env.VITE_FORMSPREE_FORM_ID;
+
+    if (!formId) {
+      setSubmitStatus("error");
+      setSubmitMessage("Email form is not configured yet.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("");
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: new FormData(form),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        const errorMessage =
+          data?.errors?.[0]?.message ||
+          "Unable to send your message right now.";
+        throw new Error(errorMessage);
+      }
+
+      trackEvent("contact_submitted", { location: "contact_section" });
+      setSubmitStatus("success");
+      setSubmitMessage("Message sent successfully. Thank you!");
+      form.reset();
+    } catch (error) {
+      setSubmitStatus("error");
+      setSubmitMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong while sending your message.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const commandActions = [
@@ -297,6 +340,9 @@ function App() {
           resumeUrl={personalInfo.resume}
           onCopyEmail={copyEmail}
           onSubmit={handleContactSubmit}
+          isSubmitting={isSubmitting}
+          submitStatus={submitStatus}
+          submitMessage={submitMessage}
         />
       </main>
 

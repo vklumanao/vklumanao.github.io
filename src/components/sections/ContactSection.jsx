@@ -16,6 +16,9 @@ function ContactSection({
   resumeUrl,
   onCopyEmail,
   onSubmit,
+  isSubmitting,
+  submitStatus,
+  submitMessage,
 }) {
   return (
     <SectionContainer id="contact" title="Contact">
@@ -26,6 +29,8 @@ function ContactSection({
               className="min-h-11 rounded-2xl border border-zinc-300 bg-zinc-100 px-4 py-3 text-sm outline-none transition focus:border-zinc-500 dark:border-white/15 dark:bg-white/5"
               placeholder="Your Name"
               autoComplete="name"
+              name="name"
+              required
             />
             <input
               className="min-h-11 rounded-2xl border border-zinc-300 bg-zinc-100 px-4 py-3 text-sm outline-none transition focus:border-zinc-500 dark:border-white/15 dark:bg-white/5"
@@ -33,17 +38,33 @@ function ContactSection({
               type="email"
               autoComplete="email"
               inputMode="email"
+              name="email"
+              required
             />
             <textarea
               className="min-h-36 rounded-2xl border border-zinc-300 bg-zinc-100 px-4 py-3 text-sm outline-none transition focus:border-zinc-500 dark:border-white/15 dark:bg-white/5"
               placeholder="Your Message"
+              name="message"
+              required
             />
             <button
               className="min-h-11 rounded-2xl bg-zinc-900 px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 dark:bg-zinc-100 dark:text-zinc-900"
               type="submit"
+              disabled={isSubmitting}
             >
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
+            {submitMessage ? (
+              <p
+                className={`text-sm ${
+                  submitStatus === "success"
+                    ? "text-emerald-600 dark:text-emerald-400"
+                    : "text-rose-600 dark:text-rose-400"
+                }`}
+              >
+                {submitMessage}
+              </p>
+            ) : null}
           </div>
         </form>
 
@@ -61,7 +82,9 @@ function ContactSection({
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
-              onClick={() => trackEvent("github_clicked", { location: "contact_section" })}
+              onClick={() =>
+                trackEvent("github_clicked", { location: "contact_section" })
+              }
               className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-xl border border-white/20 p-3 transition hover:-translate-y-0.5"
             >
               <FaGithub />
@@ -102,7 +125,9 @@ function ContactSection({
             href={resumeUrl}
             target="_blank"
             rel="noreferrer"
-            onClick={() => trackEvent("cv_opened", { location: "contact_section" })}
+            onClick={() =>
+              trackEvent("cv_opened", { location: "contact_section" })
+            }
             className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
           >
             View CV
