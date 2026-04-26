@@ -8,6 +8,7 @@ export const personalInfo = {
   focus: "Web and Software Development",
   email: "vklumanao@gmail.com",
   phone: "+63 956 135 2992",
+  resume: "/CV.pdf",
   socials: {
     github: "https://github.com/vklumanao",
     facebook: "https://www.facebook.com/iamvicrylk",

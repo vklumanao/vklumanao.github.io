@@ -192,6 +192,12 @@ function App() {
       hint: "Action",
       run: () => copyEmail(),
     },
+    {
+      id: "resume-open",
+      label: "Open CV",
+      hint: "Action",
+      run: () => window.open(personalInfo.resume, "_blank", "noopener,noreferrer"),
+    },
   ];
 
   const commandResults = commandActions
@@ -250,6 +256,7 @@ function App() {
           typedRole={typedRole}
           onViewProjects={() => navigateTo("projects")}
           onContact={() => navigateTo("contact")}
+          resumeUrl={personalInfo.resume}
           name={personalInfo.name}
           tagline={personalInfo.tagline}
           snapshot={heroSnapshot}
@@ -280,6 +287,7 @@ function App() {
           email={personalInfo.email}
           phone={personalInfo.phone}
           socials={personalInfo.socials}
+          resumeUrl={personalInfo.resume}
           onCopyEmail={copyEmail}
           onSubmit={handleContactSubmit}
         />

@@ -21,6 +21,7 @@ function HeroSection({
   typedRole,
   onViewProjects,
   onContact,
+  resumeUrl,
   name,
   tagline,
   snapshot,
@@ -103,6 +104,18 @@ function HeroSection({
             >
               Book a Call
             </motion.button>
+            <motion.a
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open CV in new tab"
+              className="glass inline-flex min-h-11 items-center rounded-2xl px-5 py-3 text-sm font-medium transition hover:-translate-y-0.5"
+              whileHover={prefersReducedMotion ? undefined : hoverLift}
+              whileTap={prefersReducedMotion ? undefined : tapPress}
+              transition={hoverTransition}
+            >
+              View CV
+            </motion.a>
           </motion.div>
           <motion.p
             variants={prefersReducedMotion ? undefined : itemVariants}

@@ -8,7 +8,14 @@
 import GlassCard from "../ui/GlassCard";
 import SectionContainer from "../layout/SectionContainer";
 
-function ContactSection({ email, phone, socials, onCopyEmail, onSubmit }) {
+function ContactSection({
+  email,
+  phone,
+  socials,
+  resumeUrl,
+  onCopyEmail,
+  onSubmit,
+}) {
   return (
     <SectionContainer id="contact" title="Contact">
       <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -89,6 +96,14 @@ function ContactSection({ email, phone, socials, onCopyEmail, onSubmit }) {
           >
             <FaCopy /> Copy Email
           </button>
+          <a
+            href={resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-4 py-2 text-sm transition hover:bg-white/10"
+          >
+            View CV
+          </a>
           <p className="text-sm text-zinc-500">{email}</p>
           <p className="text-sm text-zinc-500">{phone}</p>
         </GlassCard>

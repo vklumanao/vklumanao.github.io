@@ -1,19 +1,16 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { FaCode, FaCodeBranch } from "react-icons/fa6";
+import { FaMicrosoft } from "react-icons/fa6";
 import {
-  SiExpress,
-  SiFigma,
-  SiFirebase,
-  SiFramer,
-  SiGit,
-  SiMongodb,
-  SiNextdotjs,
+  SiCss,
+  SiGithub,
+  SiHtml5,
+  SiJavascript,
+  SiLaravel,
   SiNodedotjs,
-  SiPostman,
+  SiPostgresql,
   SiReact,
-  SiTailwindcss,
-  SiTypescript,
-  SiVite,
+  SiSupabase,
+  SiVuedotjs,
 } from "react-icons/si";
 import SectionContainer from "../layout/SectionContainer";
 import {
@@ -25,21 +22,17 @@ import {
 } from "../../lib/motion";
 
 const skillIconMap = {
+  HTML: SiHtml5,
+  CSS: SiCss,
+  JavaScript: SiJavascript,
+  "Vue.js": SiVuedotjs,
   React: SiReact,
-  TypeScript: SiTypescript,
-  "Tailwind CSS": SiTailwindcss,
-  "Framer Motion": SiFramer,
-  "Next.js": SiNextdotjs,
+  Laravel: SiLaravel,
   "Node.js": SiNodedotjs,
-  Express: SiExpress,
-  Firebase: SiFirebase,
-  MongoDB: SiMongodb,
-  "REST API": FaCodeBranch,
-  Git: SiGit,
-  Figma: SiFigma,
-  Postman: SiPostman,
-  Vite: SiVite,
-  "VS Code": FaCode,
+  Supabase: SiSupabase,
+  PostgreSQL: SiPostgresql,
+  "Git & GitHub": SiGithub,
+  "Microsoft Office": FaMicrosoft,
 };
 
 function SkillsSection({ skillGroups, onGlowMove }) {

@@ -1,14 +1,14 @@
-﻿export const skillGroups = [
+export const skillGroups = [
   {
     title: "Frontend",
-    items: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Next.js"],
+    items: ["HTML", "CSS", "JavaScript", "Vue.js", "React"],
   },
   {
-    title: "Backend",
-    items: ["Node.js", "Express", "Firebase", "MongoDB", "REST API"],
+    title: "Backend & Database",
+    items: ["Laravel", "Node.js", "Supabase", "PostgreSQL"],
   },
   {
     title: "Tools",
-    items: ["Git", "Figma", "Postman", "Vite", "VS Code"],
+    items: ["Git & GitHub", "Microsoft Office"],
   },
 ];
