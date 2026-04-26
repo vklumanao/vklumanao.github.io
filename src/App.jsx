@@ -17,7 +17,6 @@ import CertificateModal from "./components/ui/CertificateModal";
 import ProfileModal from "./components/ui/ProfileModal";
 import ProjectModal from "./components/ui/ProjectModal";
 import Toast from "./components/ui/Toast";
-import ParticleBackground from "./components/ui/ParticleBackground";
 import Preloader from "./components/ui/Preloader";
 import { certificates } from "./data/certificates";
 import { navLinks } from "./data/navLinks";
@@ -36,7 +35,6 @@ import { useLockBodyScroll } from "./hooks/useLockBodyScroll";
 import { useTyping } from "./hooks/useTyping";
 
 const sectionIds = navLinks.map((link) => link.id);
-
 function App() {
   const prefersReducedMotion = useReducedMotion();
   const [theme, setTheme] = useState(
@@ -239,7 +237,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900 transition-colors duration-300 dark:bg-bg dark:text-text">
-      <ParticleBackground theme={theme} />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.09),transparent_35%),radial-gradient(circle_at_15%_80%,rgba(255,255,255,0.07),transparent_35%)] opacity-70" />
       <AnimatePresence>{showPreloader && <Preloader />}</AnimatePresence>
 
