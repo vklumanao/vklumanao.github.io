@@ -2,8 +2,8 @@
 
 export const personalInfo = {
   name: "Vicryl Kez R. Lumanao",
-  tagline: "Student Developer building practical digital solutions",
-  role: "Student Developer",
+  tagline: "Web Developer building practical digital solutions",
+  role: "Web Developer",
   location: "Agusan Pequeño, Butuan City",
   focus: "Web and Software Development",
   email: "vklumanao@gmail.com",
@@ -14,6 +14,6 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/iamvicrylk/",
   },
   summary:
-    "A passionate Student Developer with a strong foundation in software development and problem-solving. Continuously learning and honing skills in web and software development while working on real-world projects. Enthusiastic about building innovative solutions and leveraging technology to solve everyday challenges.",
+    "A passionate Web Developer with a strong foundation in software development and problem-solving. Continuously learning and honing skills in web and software development while working on real-world projects. Enthusiastic about building innovative solutions and leveraging technology to solve everyday challenges.",
   profileImage,
 };
