@@ -1,4 +1,5 @@
-﻿import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { AnimatePresence, useReducedMotion } from "framer-motion";
 import AboutSection from "./components/sections/AboutSection";
 import ContactSection from "./components/sections/ContactSection";
 import EducationSection from "./components/sections/EducationSection";
@@ -16,6 +17,8 @@ import CertificateModal from "./components/ui/CertificateModal";
 import ProfileModal from "./components/ui/ProfileModal";
 import ProjectModal from "./components/ui/ProjectModal";
 import Toast from "./components/ui/Toast";
+import ParticleBackground from "./components/ui/ParticleBackground";
+import Preloader from "./components/ui/Preloader";
 import { certificates } from "./data/certificates";
 import { navLinks } from "./data/navLinks";
 import { education } from "./data/education";
@@ -35,9 +38,11 @@ import { useTyping } from "./hooks/useTyping";
 const sectionIds = navLinks.map((link) => link.id);
 
 function App() {
+  const prefersReducedMotion = useReducedMotion();
   const [theme, setTheme] = useState(
     () => localStorage.getItem("theme") || "dark",
   );
+  const [showPreloader, setShowPreloader] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [filter, setFilter] = useState("All");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
@@ -50,9 +55,8 @@ function App() {
   const activeSection = useActiveSection(sectionIds);
   const typedRole = useTyping(roles);
   const heroSnapshot = {
-    focus: "Student Developer",
-    availability:
-      "Open for collaborations, and project-based opportunities.",
+    focus: "Web Developer",
+    availability: "Open for collaborations, and project-based opportunities.",
     currentTrack: "Information System student building real-world systems",
     scope: "Web apps, academic systems, and interactive portfolio work",
     stats: [
@@ -76,7 +80,8 @@ function App() {
     selectedProjectIndex !== null ||
     profileZoomed ||
     certificateIndex !== null ||
-    commandOpen;
+    commandOpen ||
+    showPreloader;
   useLockBodyScroll(isOverlayOpen);
 
   useEffect(() => {
@@ -84,6 +89,21 @@ function App() {
     root.classList.toggle("dark", theme === "dark");
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const key = "portfolio_preloader_seen";
+    const alreadySeen = sessionStorage.getItem(key) === "1";
+    if (alreadySeen) return;
+
+    setShowPreloader(true);
+    const duration = prefersReducedMotion ? 450 : 900;
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+      sessionStorage.setItem(key, "1");
+    }, duration);
+
+    return () => clearTimeout(timer);
+  }, [prefersReducedMotion]);
 
   const navigateTo = (id) => {
     const el = document.getElementById(id);
@@ -219,7 +239,9 @@ function App() {
 
   return (
     <div className="min-h-screen bg-zinc-100 text-zinc-900 transition-colors duration-300 dark:bg-bg dark:text-text">
+      <ParticleBackground theme={theme} />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_80%_10%,rgba(255,255,255,0.09),transparent_35%),radial-gradient(circle_at_15%_80%,rgba(255,255,255,0.07),transparent_35%)] opacity-70" />
+      <AnimatePresence>{showPreloader && <Preloader />}</AnimatePresence>
 
       <Navbar
         navLinks={navLinks}
