@@ -1,4 +1,10 @@
-﻿export const projects = [
+﻿import centerPulseImg from "../../img/optimized/projects/center-pulse.webp";
+import designSnapEduImg from "../../img/optimized/projects/designsnapedu.webp";
+import cgbMotorPoolImg from "../../img/optimized/projects/cgb-motor-pool.webp";
+import gwaCalculatorImg from "../../img/optimized/projects/gwa-calculator.webp";
+import speechToTextImg from "../../img/optimized/projects/speech-to-text.webp";
+
+export const projects = [
   {
     title: "CenterPulse: Affiliation and Management System",
     category: "Academic",
@@ -11,7 +17,7 @@
       "PostgreSQL",
       "CKAN",
     ],
-    image: "img/optimized/projects/center-pulse.webp",
+    image: centerPulseImg,
     live: "#",
     github: "#",
     year: "2025",
@@ -25,7 +31,7 @@
     title: "DesignSnap EDU",
     category: "Academic",
     stack: ["HTML", "CSS", "JavaScript", "Bootstrap", "Chrome"],
-    image: "img/optimized/projects/designsnapedu.webp",
+    image: designSnapEduImg,
     live: "#",
     github: "https://github.com/jeremydanielestrada/DesignSnap-Edu",
     year: "2025",
@@ -39,7 +45,7 @@
     title: "Equipment Management System (Motor Pool)",
     category: "Web App",
     stack: ["Vue", "Vuetify"],
-    image: "img/optimized/projects/cgb-motor-pool.webp",
+    image: cgbMotorPoolImg,
     live: "https://cgb-motorpol.vercel.app/",
     github: "https://github.com/vklumanao/equipment-management-system",
     year: "2025",
@@ -53,7 +59,7 @@
     title: "GWA Calculator",
     category: "Academic",
     stack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
-    image: "img/optimized/projects/gwa-calculator.webp",
+    image: gwaCalculatorImg,
     live: "https://gwa-genie.vercel.app/",
     github: "https://github.com/vklumanao/gwa-calculator",
     year: "2024",
@@ -67,7 +73,7 @@
     title: "Speech-to-Text",
     category: "Web App",
     stack: ["HTML", "CSS", "JavaScript", "Bootstrap", "Web Speech API"],
-    image: "img/optimized/projects/speech-to-text.webp",
+    image: speechToTextImg,
     live: "https://vklumanao.github.io/hci.github.io/",
     github: "https://github.com/vklumanao/hci.github.io",
     year: "2024",
