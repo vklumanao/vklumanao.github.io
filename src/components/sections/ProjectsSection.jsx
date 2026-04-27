@@ -1,4 +1,5 @@
-﻿import SectionContainer from "../layout/SectionContainer";
+import { useEffect, useRef, useState } from "react";
+import SectionContainer from "../layout/SectionContainer";
 import ProjectCard from "../ui/ProjectCard";
 import { trackEvent } from "../../lib/analytics";
 
@@ -10,18 +11,54 @@ function ProjectsSection({
   allProjects,
   onGlowMove,
 }) {
+  const [isFeaturedExpanded, setIsFeaturedExpanded] = useState(false);
+  const [canToggleFeaturedImpact, setCanToggleFeaturedImpact] = useState(false);
+  const featuredDescriptionRef = useRef(null);
+
   const featuredProject =
     filteredProjects.find((project) => project.featured) || filteredProjects[0];
   const featuredImpact =
     featuredProject?.impact ?? featuredProject?.description;
-  const featuredCollaboration =
-    featuredProject?.collaboration ??
-    (featuredProject?.role?.toLowerCase().includes("team") ? "Team" : "Solo");
+  const featuredCollaboration = featuredProject?.collaboration ?? "Solo";
   const gridProjects = featuredProject
     ? filteredProjects.filter(
         (project) => project.title !== featuredProject.title,
       )
     : [];
+
+  useEffect(() => {
+    setIsFeaturedExpanded(false);
+  }, [featuredProject?.title, filter]);
+
+  useEffect(() => {
+    const evaluateClampState = () => {
+      const descriptionEl = featuredDescriptionRef.current;
+      if (!descriptionEl) {
+        setCanToggleFeaturedImpact(false);
+        return;
+      }
+
+      const hasClampClass = descriptionEl.classList.contains("line-clamp-3");
+      if (!hasClampClass) {
+        descriptionEl.classList.add("line-clamp-3");
+      }
+
+      const isOverflowing =
+        descriptionEl.scrollHeight - descriptionEl.clientHeight > 1;
+      setCanToggleFeaturedImpact(isOverflowing);
+
+      if (!hasClampClass) {
+        descriptionEl.classList.remove("line-clamp-3");
+      }
+    };
+
+    evaluateClampState();
+    window.addEventListener("resize", evaluateClampState);
+
+    return () => {
+      window.removeEventListener("resize", evaluateClampState);
+    };
+  }, [featuredImpact, featuredProject?.title, isFeaturedExpanded]);
 
   const categoryCounts = categories.reduce((acc, category) => {
     acc[category] =
@@ -97,9 +134,24 @@ function ProjectsSection({
                   </span>
                 </div>
               </div>
-              <p className="line-clamp-3 text-sm font-medium text-zinc-700 dark:text-zinc-200">
+              <p
+                ref={featuredDescriptionRef}
+                id="featured-project-description"
+                className={`${isFeaturedExpanded ? "" : "line-clamp-3"} text-sm font-medium text-zinc-700 dark:text-zinc-200`}
+              >
                 {featuredImpact}
               </p>
+              {canToggleFeaturedImpact && (
+                <button
+                  type="button"
+                  onClick={() => setIsFeaturedExpanded((current) => !current)}
+                  aria-expanded={isFeaturedExpanded}
+                  aria-controls="featured-project-description"
+                  className="text-xs font-semibold uppercase tracking-wide text-zinc-500 underline-offset-2 transition hover:underline"
+                >
+                  {isFeaturedExpanded ? "Show less" : "Read more"}
+                </button>
+              )}
               <p className="text-xs uppercase tracking-wide text-zinc-500">
                 {featuredProject.role} | {featuredProject.year} |{" "}
                 {featuredCollaboration}
@@ -170,5 +222,3 @@ function ProjectsSection({
 }
 
 export default ProjectsSection;
-
-
