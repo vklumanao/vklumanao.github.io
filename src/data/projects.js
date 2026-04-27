@@ -3,6 +3,7 @@ import designSnapEduImg from "../../img/optimized/projects/designsnapedu.webp";
 import cgbMotorPoolImg from "../../img/optimized/projects/cgb-motor-pool.webp";
 import gwaCalculatorImg from "../../img/optimized/projects/gwa-calculator.webp";
 import speechToTextImg from "../../img/optimized/projects/speech-to-text.webp";
+import coutureImg from "../../img/optimized/projects/couture.webp";
 
 export const projects = [
   {
@@ -20,8 +21,9 @@ export const projects = [
     image: centerPulseImg,
     live: "#",
     github: "#",
-    year: "2025",
+    year: "2026",
     role: "Lead Developer",
+    collaboration: "Team",
     status: "Ongoing",
     featured: true,
     description:
@@ -36,20 +38,36 @@ export const projects = [
     github: "https://github.com/jeremydanielestrada/DesignSnap-Edu",
     year: "2025",
     role: "Lead Developer",
+    collaboration: "Team",
     status: "Completed",
     featured: false,
     description:
       "An AI-powered Chrome Extension that scans and extracts HTML/CSS from web pages, evaluates design quality, and provides AI-driven feedback for web design improvement.",
   },
   {
+    title: "TOM MONDALO",
+    category: "Web App",
+    stack: ["React", "Tailwind CSS", "Vite", "React Router", "Framer Motion"],
+    image: coutureImg,
+    github: "https://github.com/vklumanao/couture-house",
+    year: "2026",
+    role: "Full-stack Developer",
+    collaboration: "Solo",
+    status: "Ongoing",
+    featured: true,
+    description:
+      "A modern couture brand website for TOM MONDALO, focused on elegant storytelling, collection showcases, and smooth inquiry flows with responsive performance across devices.",
+  },
+  {
     title: "Equipment Management System (Motor Pool)",
     category: "Web App",
-    stack: ["Vue", "Vuetify"],
+    stack: ["Vue", "Vuetify", "Supabase", "Inertia"],
     image: cgbMotorPoolImg,
     live: "https://cgb-motorpol.vercel.app/",
     github: "https://github.com/vklumanao/equipment-management-system",
     year: "2025",
     role: "Frontend Developer",
+    collaboration: "Team",
     status: "Completed",
     featured: false,
     description:
@@ -64,6 +82,7 @@ export const projects = [
     github: "https://github.com/vklumanao/gwa-calculator",
     year: "2024",
     role: "Full-stack Developer",
+    collaboration: "Solo",
     status: "Completed",
     featured: false,
     description:
@@ -78,6 +97,7 @@ export const projects = [
     github: "https://github.com/vklumanao/hci.github.io",
     year: "2024",
     role: "Frontend Developer",
+    collaboration: "Solo",
     status: "Completed",
     featured: false,
     description:
