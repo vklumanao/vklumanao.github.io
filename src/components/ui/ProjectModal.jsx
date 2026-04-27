@@ -4,9 +4,7 @@ import Modal from "./Modal";
 
 function ProjectModal({ project, open, onClose, onPrev, onNext }) {
   const impactLine = project?.impact ?? project?.description;
-  const collaborationType =
-    project?.collaboration ??
-    (project?.role?.toLowerCase().includes("team") ? "Team" : "Solo");
+  const collaborationType = project?.collaboration ?? "Solo";
 
   return (
     <Modal
