@@ -1,11 +1,46 @@
-﻿import { motion } from "framer-motion";
+﻿import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { trackEvent } from "../../lib/analytics";
 
 function ProjectCard({ project, onMouseMove }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [canToggleImpact, setCanToggleImpact] = useState(false);
+  const descriptionRef = useRef(null);
   const impactLine = project.impact ?? project.description;
-  const collaborationType =
-    project.collaboration ??
-    (project.role?.toLowerCase().includes("team") ? "Team" : "Solo");
+  const collaborationType = project.collaboration ?? "Solo";
+  const descriptionId = `project-description-${project.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")}`;
+
+  useEffect(() => {
+    const evaluateClampState = () => {
+      const descriptionEl = descriptionRef.current;
+      if (!descriptionEl) {
+        setCanToggleImpact(false);
+        return;
+      }
+
+      const hasClampClass = descriptionEl.classList.contains("line-clamp-2");
+      if (!hasClampClass) {
+        descriptionEl.classList.add("line-clamp-2");
+      }
+
+      const isOverflowing = descriptionEl.scrollHeight - descriptionEl.clientHeight > 1;
+      setCanToggleImpact(isOverflowing);
+
+      if (!hasClampClass) {
+        descriptionEl.classList.remove("line-clamp-2");
+      }
+    };
+
+    evaluateClampState();
+    window.addEventListener("resize", evaluateClampState);
+
+    return () => {
+      window.removeEventListener("resize", evaluateClampState);
+    };
+  }, [impactLine, isExpanded, project.title]);
 
   return (
     <motion.article
@@ -27,9 +62,24 @@ function ProjectCard({ project, onMouseMove }) {
             {project.category}
           </span>
         </div>
-        <p className="line-clamp-2 text-sm text-zinc-700 dark:text-zinc-300">
+        <p
+          ref={descriptionRef}
+          id={descriptionId}
+          className={`${isExpanded ? "" : "line-clamp-2"} text-sm text-zinc-700 dark:text-zinc-300`}
+        >
           {impactLine}
         </p>
+        {canToggleImpact && (
+          <button
+            type="button"
+            onClick={() => setIsExpanded((current) => !current)}
+            aria-expanded={isExpanded}
+            aria-controls={descriptionId}
+            className="text-xs font-semibold uppercase tracking-wide text-zinc-500 underline-offset-2 transition hover:underline"
+          >
+            {isExpanded ? "Show less" : "Read more"}
+          </button>
+        )}
         <p className="text-xs uppercase tracking-wide text-zinc-500">
           {project.role} • {project.year} • {collaborationType}
         </p>
@@ -83,4 +133,3 @@ function ProjectCard({ project, onMouseMove }) {
 }
 
 export default ProjectCard;
-
